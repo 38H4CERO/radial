@@ -279,7 +279,7 @@ public class DonutRenderer implements AutoCloseable {
                         Minecraft.getInstance())
                 .exceptionally(e -> {
                     RadialClient.LOGGER.error("Failed to generate radial sector textures", e);
-                    if (this.generationId != currentGenId) this.generating = false;
+                    if (this.generationId == currentGenId) this.generating = false;
                     return null;
                 });
     }
